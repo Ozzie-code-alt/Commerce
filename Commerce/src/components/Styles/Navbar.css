@@ -1,0 +1,28 @@
+
+
+.navbar-container{
+    background-color: black;
+    display: grid;
+    justify-content: flex-end;
+    height: 100px;
+    max-height: max-content;
+    width: 100%;
+}
+
+.navbar-container .link-container{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+}
+
+.navbar-container .link-container .Shop{
+font-size: 30px;
+color: white;
+text-decoration: none;
+}
+
+.navbar-container .link-container  .cart{
+    color: white;
+    padding-right: 4rem;
+}
