@@ -5,7 +5,7 @@ function Product({data}) {
     // console.log(data)
   return (
     // end here continue tom with css 
-    <div className='product-container'>
+    <div className='img-container'>
         <img src={productImage} alt="" />
         <div className="product-description">
           <p>{productName}</p>
