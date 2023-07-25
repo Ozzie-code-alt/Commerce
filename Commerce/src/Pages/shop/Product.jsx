@@ -4,10 +4,12 @@ import {ShopContext} from '../../context/shop-context'
 
 
 
-function Product({data}) {
-    const {addToCart} = useContext(ShopContext)
-    const {id, productName, price, productImage} = data
-    // console.log(data)
+function Product(prop) {
+    const {addToCart, cartItems} = useContext(ShopContext) // we passed it here  frin shop-context
+    const {id, productName, price, productImage} = prop.data
+    // console.log(productImage)
+
+    const cartItemAmount = cartItems[id]
   return (
     // end here continue tom with css 
     <div className='img-container'>
@@ -16,8 +18,10 @@ function Product({data}) {
           <p>{productName}</p>
           <p>${price}</p>
         </div>
+
         <div className="btn-container">
-        <button onClick={() => addToCart(id)}>Add to <ShoppingCart /></button>
+        <button onClick={() => addToCart(id)}>Add to <ShoppingCart /> {cartItemAmount > 0 && <> ({cartItemAmount})</>}</button> {/*if cartItemAmount is greater than 0 generate a new blank div with total clicks */}
+        
         </div>
     </div>
   )
