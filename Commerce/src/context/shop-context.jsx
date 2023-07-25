@@ -16,8 +16,20 @@ const getDefaultCart = ()=>{ // loop through whole product and put a key to id f
 function ShopContextProvider(props) {
     // this is where we are going to define states that is related to our projects that can be used globally 
 
-    const [cartItems, setCartItems] = useState(getDefaultCart()); // this will container an object which contains key of our object Product to count how many are in cart
-  
+    const [cartItems,setCartItems] = useState(getDefaultCart()); // this will container an object which contains key of our object Product to count how many are in cart
+
+
+    const getTotal = ()=>{
+        let total= 0;
+        for(const item in cartItems){
+            console.log(item)
+            if(cartItems[item] > 0){
+                let itemInfo = PRODUCTS.find((product) => product.id === Number(item)) // find is a js array method for finding 
+                total += cartItems[item] * itemInfo.price
+            }
+        }
+        return total
+    }
         const addToCart = (itemId)=>{
 setCartItems((prev) =>  ({ ...prev, [itemId]: prev[itemId] + 1 }))
         }
@@ -26,7 +38,11 @@ setCartItems((prev) =>  ({ ...prev, [itemId]: prev[itemId] + 1 }))
 setCartItems((prev) =>  ({ ...prev, [itemId]: prev[itemId] - 1 }))
         }
 
-    const contextValue = {cartItems, addToCart, removeToCart}
+        const updateCart = (newAMount, itemId)=>{
+setCartItems((prev) => ({...prev, [itemId]: newAMount}))
+        }
+
+    const contextValue = {cartItems, addToCart, removeToCart, updateCart, getTotal}
     
     // console.log(contextValue.cartItems)
 
