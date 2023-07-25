@@ -7,6 +7,7 @@
 
 .main-shop-container .title-container{
     text-align: center;
+    font-size: 50px;
 }
 
 .main-shop-container .products-container{
@@ -31,4 +32,16 @@
 
 .main-shop-container .products-container .img-container .product-description{
     text-align: center;
+}
+.main-shop-container .products-container .img-container .btn-container{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.main-shop-container .products-container .img-container .btn-container button{
+padding: 0.5rem;
+border-radius: 15px;
+border-style:ridge ;
+cursor:pointer;
 }

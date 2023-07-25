@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {ShoppingCart} from 'phosphor-react'
+import {ShopContext} from '../../context/shop-context'
+
+
 
 function Product({data}) {
+    const {addToCart} = useContext(ShopContext)
     const {id, productName, price, productImage} = data
     // console.log(data)
   return (
@@ -10,6 +15,9 @@ function Product({data}) {
         <div className="product-description">
           <p>{productName}</p>
           <p>${price}</p>
+        </div>
+        <div className="btn-container">
+        <button onClick={() => addToCart(id)}>Add to <ShoppingCart /></button>
         </div>
     </div>
   )
